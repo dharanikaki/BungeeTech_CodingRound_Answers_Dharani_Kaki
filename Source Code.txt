@@ -1,0 +1,45 @@
+I have solved using Python language in google collaboratory
+Here Are the links to my answers
+
+Question1:
+https://colab.research.google.com/drive/1whFnVZ1kaTkSIVpJOkOgi1qxrDIzi5RD?usp=sharing
+SOURCE CODE:
+
+import pandas as pd 
+import requests
+import io
+url = "https://raw.githubusercontent.com/Bungeetech/internship-test2/master/input/question-1/main.csv"
+download = requests.get(url).content
+df = pd.read_csv(io.StringIO(download.decode('utf-8')))
+print(df)
+
+df.groupby((df.Year//10)*10).sum()
+
+Question 2:
+https://colab.research.google.com/drive/1ogcIBtixGfwMeUo9obYHhqFB-nxdS5v2?usp=sharing
+
+SOURCE CODE:
+import pandas as pd 
+import requests
+import io
+url = "https://raw.githubusercontent.com/Bungeetech/internship-test2/master/input/question-2/main.csv"
+download = requests.get(url).content
+df = pd.read_csv(io.StringIO(download.decode('utf-8')))
+print(df)
+df.groupby('occupation')['age'].agg(['min','max'])
+
+
+Quetion 3:
+https://colab.research.google.com/drive/1TaNqT4spbp2KJduPVX0QFzYhOTfEQYTD?usp=sharing
+
+SOURCE CODE:
+import pandas as pd 
+import requests
+import io
+url = "https://raw.githubusercontent.com/Bungeetech/internship-test2/master/input/question-3/main.csv"
+download = requests.get(url).content
+df = pd.read_csv(io.StringIO(download.decode('utf-8')))
+print(df)
+d=df[['Team','Yellow Cards','Red Cards']]
+d
+d.sort_values(['Yellow Cards','Red Cards'],ascending=False)
